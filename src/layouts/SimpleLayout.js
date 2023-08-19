@@ -8,7 +8,7 @@ class SimpleLayout extends React.PureComponent {
 
   render() {
     const { children } = this.props
-    return <div> {children} 组件布局 </div>
+    return <div> {children} SimpleLayout组件布局 </div>
   }
 }
 export default SimpleLayout
