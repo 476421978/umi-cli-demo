@@ -5,7 +5,7 @@ import { ContainerQuery } from "react-container-query"
 import classnames from "classnames"
 import Header from "./Header"
 import Footer from "./Footer"
-import router from 'umi/router';
+import router from "umi/router"
 
 const query = {
   a: 1,
@@ -15,6 +15,9 @@ const { Content, Sider } = Layout
 class BasicLayout extends React.PureComponent {
   constructor(props) {
     super(props)
+    this.state = {
+      type: "BasicLayout",
+    }
     console.log("BasicLayout--------", props)
   }
 
@@ -31,15 +34,13 @@ class BasicLayout extends React.PureComponent {
 
     console.log("children---", children)
 
-
     // 不同的全局 layout
-    if (this.props.location.pathname === "/user/login") {
+    if (this.props.location.pathname === "/user/login"){
       // return <div>不同布局</div>
-      return <SimpleLayout></SimpleLayout>
+      return <SimpleLayout {...this.props}></SimpleLayout>
     }
     // 主动跳转页面
-    // router.replace('/user/login')
-
+    // router.replace("/user/login")
 
     const layout = (
       <Layout>
@@ -50,7 +51,7 @@ class BasicLayout extends React.PureComponent {
           }}
         >
           <Header />
-          <Content>内容区 {children}</Content>
+          <Content>内容区 </Content>
           <Footer />
         </Layout>
       </Layout>
